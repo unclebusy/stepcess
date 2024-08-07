@@ -1,7 +1,6 @@
-import { MainNavBar } from '../components/MainNavBar';
-
-export * as React from 'react';
+import * as React from 'react';
+import { Paper } from '@mui/material';
 
 export const Home = () => {
-  return <MainNavBar />;
+  return <Paper />;
 };
