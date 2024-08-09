@@ -4,7 +4,7 @@ import { QuestionField } from '../components/QuestionField';
 import { AnswerField } from '../components/AnswerField';
 import { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
-import { makeRandomIndex } from '../utils/makeRandom';
+import _ from 'lodash';
 
 export const Home = () => {
   const [testType, setTestType] = useState('Frontend');
@@ -22,8 +22,7 @@ export const Home = () => {
       .then((questions) => {
         setDataQuestions(questions);
         if (questions.length > 0) {
-          const randomIndex = makeRandomIndex(questions);
-          setCurrentQuestion(questions[randomIndex]);
+          setCurrentQuestion(_.sample(questions));
         }
       })
       .catch((error) => console.error('Error fetching data:', error));
@@ -32,8 +31,6 @@ export const Home = () => {
   if (!currentQuestion) {
     return <Typography>Загрузка...</Typography>;
   }
-  //eslint-disable-next-line
-  const questions = dataQuestions;
 
   return (
     <Box
