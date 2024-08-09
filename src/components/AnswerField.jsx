@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useMemo } from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -6,9 +6,11 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import _ from 'lodash';
 
-export function AnswerField({ dataQuestions }) {
-  const qstAnswer = dataQuestions[0].answers;
+export function AnswerField({ currentQuestion }) {
+  const qstAnswers = useMemo(() => _.shuffle(currentQuestion.answers), [currentQuestion.answers]);
 
   return (
     <Box
@@ -35,12 +37,32 @@ export function AnswerField({ dataQuestions }) {
               gap: 1,
             }}
           >
-            {' '}
-            {qstAnswer.map((el, index) => (
-              <FormControlLabel key={index} value="answer-1" control={<Radio />} label={el} />
-            ))}
+            {qstAnswers.length > 0 ? (
+              qstAnswers.map((el, index) => (
+                <FormControlLabel
+                  key={index}
+                  value={`answer-${index}`}
+                  control={<Radio />}
+                  label={el}
+                />
+              ))
+            ) : (
+              <Typography>Нет доступных ответов</Typography>
+            )}
           </RadioGroup>
-          <Button sx={{ mt: 1, mr: 1, marginTop: '2rem' }} type="submit" variant="outlined">
+          <Button
+            sx={{
+              mt: 1,
+              mr: 1,
+              padding: '0.5rem 1rem',
+              minWidth: 'auto',
+              textAlign: 'center',
+              marginTop: '2rem',
+              alignSelf: 'center',
+            }}
+            type="submit"
+            variant="outlined"
+          >
             Следующий вопрос
           </Button>
         </FormControl>

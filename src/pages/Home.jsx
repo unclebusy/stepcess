@@ -3,9 +3,13 @@ import { Box } from '@mui/material';
 import { QuestionField } from '../components/QuestionField';
 import { AnswerField } from '../components/AnswerField';
 import { useEffect, useState } from 'react';
+import Typography from '@mui/material/Typography';
+import { makeRandomIndex } from '../utils/makeRandom';
 
 export const Home = () => {
+  const [testType, setTestType] = useState('Frontend');
   const [dataQuestions, setDataQuestions] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState(null);
 
   useEffect(() => {
     fetch('/data/questions.json')
@@ -17,9 +21,19 @@ export const Home = () => {
       })
       .then((questions) => {
         setDataQuestions(questions);
+        if (questions.length > 0) {
+          const randomIndex = makeRandomIndex(questions);
+          setCurrentQuestion(questions[randomIndex]);
+        }
       })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
+  if (!currentQuestion) {
+    return <Typography>Загрузка...</Typography>;
+  }
+  //eslint-disable-next-line
+  const questions = dataQuestions;
 
   return (
     <Box
@@ -39,13 +53,16 @@ export const Home = () => {
           borderRadius: '1rem',
           boxShadow: 10,
           display: 'grid',
-          gridTemplateRows: '2fr 2fr',
+          gridTemplateRows: ' 0fr 1fr 1fr',
           gap: '1rem',
           padding: '2rem',
         }}
       >
-        <QuestionField dataQuestions={dataQuestions} />
-        <AnswerField dataQuestions={dataQuestions} />
+        <Typography variant="h6" component="h2">
+          Тестирование для {testType} разработчика
+        </Typography>
+        <QuestionField currentQuestion={currentQuestion} />
+        <AnswerField currentQuestion={currentQuestion} setTestType={setTestType} />
       </Box>
     </Box>
   );

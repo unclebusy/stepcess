@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
-export const QuestionField = ({ dataQuestions }) => {
-  const qstText = dataQuestions[0].question;
+export const QuestionField = ({ currentQuestion }) => {
+  const question = currentQuestion.question;
 
   return (
     <Box
@@ -14,7 +14,7 @@ export const QuestionField = ({ dataQuestions }) => {
         borderRadius: '0.5rem',
       }}
     >
-      <h1>{qstText}</h1>
+      <h1>{question}</h1>
     </Box>
   );
 };
