@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Box } from '@mui/material';
 import { QuestionField } from '../components/QuestionField';
 import { AnswerField } from '../components/AnswerField';
 import { useEffect, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import _ from 'lodash';
+import { Download } from '../components/Download';
+import { MainBox } from '../components/MainBox';
 
 export const Home = () => {
   const [testType, setTestType] = useState('Frontend');
@@ -12,7 +13,7 @@ export const Home = () => {
   const [currentQuestion, setCurrentQuestion] = useState(null);
 
   useEffect(() => {
-    fetch('/data/questions.json')
+    fetch('/data/questions-test.json')
       .then((resp) => {
         if (!resp.ok) {
           throw new Error('Network response was not ok');
@@ -29,38 +30,16 @@ export const Home = () => {
   }, []);
 
   if (!currentQuestion) {
-    return <Typography>Загрузка...</Typography>;
+    return <Download />;
   }
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        maxHeight: 'calc(100vh - 60px)',
-        mt: '50px',
-      }}
-    >
-      <Box
-        sx={{
-          width: '60vw',
-          height: 'calc(80vh - 60px)',
-          borderRadius: '1rem',
-          boxShadow: 10,
-          display: 'grid',
-          gridTemplateRows: ' 0fr 1fr 1fr',
-          gap: '1rem',
-          padding: '2rem',
-        }}
-      >
-        <Typography variant="h6" component="h2">
-          Тестирование для {testType} разработчика
-        </Typography>
-        <QuestionField currentQuestion={currentQuestion} />
-        <AnswerField currentQuestion={currentQuestion} setTestType={setTestType} />
-      </Box>
-    </Box>
+    <MainBox>
+      <Typography variant="h6" component="h2">
+        Тестирование для {testType} разработчика
+      </Typography>
+      <QuestionField currentQuestion={currentQuestion} dataQuestions={dataQuestions} />
+      <AnswerField currentQuestion={currentQuestion} setTestType={setTestType} />
+    </MainBox>
   );
 };

@@ -1,5 +1,5 @@
 # data
-/public/data/questions.json
+/public/data/questions-main.json
 
 # dependencies
 /node_modules
