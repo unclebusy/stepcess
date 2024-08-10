@@ -15,7 +15,7 @@ export const QuestionField = () => {
         borderRadius: '0.5rem',
       }}
     >
-      <h1>{currentQuestion}</h1>
+      <h1>{currentQuestion ? currentQuestion : 'Нет доступных вопросов'}</h1>
     </Box>
   );
 };

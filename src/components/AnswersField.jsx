@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -8,11 +9,12 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import _ from 'lodash';
-import { useSelector } from 'react-redux';
 
 export function AnswerField() {
   const currentAnswers = useSelector((state) => state.answers.currentAnswers);
   const mixedAnswers = useMemo(() => _.shuffle(currentAnswers), [currentAnswers]);
+  const idQuestions = useSelector((state) => state.questions.currentQuestion.id);
+  const correctAnswer = useSelector((state) => state.answers.correctAnswer);
 
   return (
     <Box
@@ -28,7 +30,7 @@ export function AnswerField() {
       <form>
         <FormControl sx={{ m: 1 }} variant="standard">
           <FormLabel id="radios" sx={{ marginBottom: '2rem' }}>
-            Выбери правильный ответ
+            Выбери правильный ответ {correctAnswer} {idQuestions}
           </FormLabel>
           <RadioGroup
             aria-labelledby="answer-buttons-radios"
@@ -53,6 +55,7 @@ export function AnswerField() {
             )}
           </RadioGroup>
           <Button
+            // onClick={}
             sx={{
               mt: 1,
               mr: 1,

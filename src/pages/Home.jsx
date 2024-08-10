@@ -8,7 +8,7 @@ import { MainBox } from '../components/MainBox';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllQuestions, setCurrentQuestion } from '../redux/slices/questionsSlice';
-import { setCurrentAnswers } from '../redux/slices/answersSlice';
+import { setCorrectAnswer, setCurrentAnswers } from '../redux/slices/answersSlice';
 
 export const Home = () => {
   const testTypeName = useSelector((state) => state.testType.testTypeName);
@@ -30,6 +30,7 @@ export const Home = () => {
           const randomQuestion = _.sample(questions);
           dispatch(setCurrentQuestion(randomQuestion));
           dispatch(setCurrentAnswers(randomQuestion.answers));
+          dispatch(setCorrectAnswer(randomQuestion.correct_answer));
         }
       })
       .catch((error) => console.error('Error fetching data:', error));
