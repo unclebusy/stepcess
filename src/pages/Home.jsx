@@ -1,16 +1,20 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+import Typography from '@mui/material/Typography';
 import { QuestionField } from '../components/QuestionField';
 import { AnswerField } from '../components/AnswerField';
-import { useEffect, useState } from 'react';
-import Typography from '@mui/material/Typography';
-import _ from 'lodash';
 import { Download } from '../components/Download';
 import { MainBox } from '../components/MainBox';
+import _ from 'lodash';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAllQuestions, setCurrentQuestion } from '../redux/slices/questionsSlice';
+import { setCurrentAnswers } from '../redux/slices/answersSlice';
 
 export const Home = () => {
-  const [testType, setTestType] = useState('Frontend');
-  const [dataQuestions, setDataQuestions] = useState([]);
-  const [currentQuestion, setCurrentQuestion] = useState(null);
+  const testTypeName = useSelector((state) => state.testType.testTypeName);
+  const currentQuestion = useSelector((state) => state.questions.currentQuestion);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch('/data/questions-test.json')
@@ -21,9 +25,11 @@ export const Home = () => {
         return resp.json();
       })
       .then((questions) => {
-        setDataQuestions(questions);
+        dispatch(setAllQuestions(questions));
         if (questions.length > 0) {
-          setCurrentQuestion(_.sample(questions));
+          const randomQuestion = _.sample(questions);
+          dispatch(setCurrentQuestion(randomQuestion));
+          dispatch(setCurrentAnswers(randomQuestion.answers));
         }
       })
       .catch((error) => console.error('Error fetching data:', error));
@@ -36,10 +42,10 @@ export const Home = () => {
   return (
     <MainBox>
       <Typography variant="h6" component="h2">
-        Тестирование для {testType} разработчика
+        Тестирование для {testTypeName} разработчика
       </Typography>
-      <QuestionField currentQuestion={currentQuestion} dataQuestions={dataQuestions} />
-      <AnswerField currentQuestion={currentQuestion} setTestType={setTestType} />
+      <QuestionField />
+      <AnswerField />
     </MainBox>
   );
 };

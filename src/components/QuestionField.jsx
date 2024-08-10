@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
+import { useSelector } from 'react-redux';
 
-export const QuestionField = ({ currentQuestion }) => {
-  const question = currentQuestion.question;
+export const QuestionField = () => {
+  const currentQuestion = useSelector((state) => state.questions.currentQuestion.question);
 
   return (
     <Box
@@ -14,7 +15,7 @@ export const QuestionField = ({ currentQuestion }) => {
         borderRadius: '0.5rem',
       }}
     >
-      <h1>{question}</h1>
+      <h1>{currentQuestion}</h1>
     </Box>
   );
 };

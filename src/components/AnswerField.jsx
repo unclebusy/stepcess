@@ -8,9 +8,11 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import _ from 'lodash';
+import { useSelector } from 'react-redux';
 
-export function AnswerField({ currentQuestion }) {
-  const qstAnswers = useMemo(() => _.shuffle(currentQuestion.answers), [currentQuestion.answers]);
+export function AnswerField() {
+  const currentAnswers = useSelector((state) => state.answers.currentAnswers);
+  const mixedAnswers = useMemo(() => _.shuffle(currentAnswers), [currentAnswers]);
 
   return (
     <Box
@@ -37,8 +39,8 @@ export function AnswerField({ currentQuestion }) {
               gap: 1,
             }}
           >
-            {qstAnswers.length > 0 ? (
-              qstAnswers.map((el, index) => (
+            {mixedAnswers.length > 0 ? (
+              mixedAnswers.map((el, index) => (
                 <FormControlLabel
                   key={index}
                   value={`answer-${index}`}
