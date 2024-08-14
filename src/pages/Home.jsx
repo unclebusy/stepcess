@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import { QuestionField } from '../components/QuestionField';
-import { AnswerField } from '../components/AnswerField';
+import { AnswersField } from '../components/AnswersField';
 import { Download } from '../components/Download';
 import { MainBox } from '../components/MainBox';
 import _ from 'lodash';
@@ -46,7 +46,7 @@ export const Home = () => {
         Тестирование для {testTypeName} разработчика
       </Typography>
       <QuestionField />
-      <AnswerField />
+      <AnswersField />
     </MainBox>
   );
 };

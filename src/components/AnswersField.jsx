@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import _ from 'lodash';
 
-export function AnswerField() {
+export function AnswersField() {
   const currentAnswers = useSelector((state) => state.answers.currentAnswers);
   const mixedAnswers = useMemo(() => _.shuffle(currentAnswers), [currentAnswers]);
   const idQuestions = useSelector((state) => state.questions.currentQuestion.id);
