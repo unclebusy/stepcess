@@ -1,57 +1,122 @@
 [
   {
     "id": 1,
-    "question": "Какие типы данных существуют в JavaScript?",
-    "answers": [
+    "questionTopic": "JavaScript",
+    "questionText": "Какие типы данных существуют в JavaScript?",
+    "questionAnswers": [
       "Числа, строки, логический тип, Object, null, undefined, Symbol, BigInt",
       "Целые числа, строки, логический тип, JSON, null, undefined, Symbol, BigInt",
       "Числа, строки, булевы значения, объект, null, undefined, Date, BigInt",
       "Числа, строки, логический тип, объект, null, undefined, символы, даты"
     ],
-    "correct_answer": "Числа, строки, логический тип, Object, null, undefined, Symbol, BigInt"
+    "questionCorrectAnswer": "Числа, строки, логический тип, Object, null, undefined, Symbol, BigInt"
   },
   {
     "id": 2,
-    "question": "В чем разница между операторами '==' и '==='?",
-    "answers": [
+    "questionTopic": "JavaScript",
+    "questionText": "В чем разница между операторами '==' и '==='?",
+    "questionAnswers": [
       "'==' проверяет на абстрактное равенство, '===' проверяет на строгое равенство",
       "'==' проверяет на строгое равенство, '===' проверяет на абстрактное равенство",
       "'==' и '===' проверяют на абстрактное равенство, но '===' более строгий",
       "'==' и '===' проверяют на строгое равенство, но '==' более гибкий"
     ],
-    "correct_answer": "'==' проверяет на абстрактное равенство, '===' проверяет на строгое равенство"
+    "questionCorrectAnswer": "'==' проверяет на абстрактное равенство, '===' проверяет на строгое равенство"
   },
   {
     "id": 3,
-    "question": "Какими способами можно объявить переменную в JavaScript?",
-    "answers": [
+    "questionTopic": "JavaScript",
+    "questionText": "Какими способами можно объявить переменную в JavaScript?",
+    "questionAnswers": [
       "a = 5, var a = 5, let a = 5, const a = 5",
       "a = 5, var a = 5, let a = 5, static a = 5",
       "var a = 5, let a = 5, const a = 5, function a() {}",
       "let a = 5, const a = 5, a = 5, new a = 5"
     ],
-    "correct_answer": "a = 5, var a = 5, let a = 5, const a = 5"
+    "questionCorrectAnswer": "a = 5, var a = 5, let a = 5, const a = 5"
   },
   {
     "id": 4,
-    "question": "В чем разница между null и undefined в JavaScript?",
-    "answers": [
+    "questionTopic": "JavaScript",
+    "questionText": "В чем разница между null и undefined в JavaScript?",
+    "questionAnswers": [
       "undefined означает отсутствие значения, null — это специальное значение для «ничего»",
       "null — это отсутствие значения, undefined — это ошибка переменной",
       "null используется для указания ошибки, undefined — это пустое значение",
       "null и undefined взаимозаменяемы, оба означают «пусто»"
     ],
-    "correct_answer": "undefined означает отсутствие значения, null — это специальное значение для «ничего»"
+    "questionCorrectAnswer": "undefined означает отсутствие значения, null — это специальное значение для «ничего»"
   },
   {
     "id": 5,
-    "question": "Для чего используются методы map, filter, reduce, forEach в JavaScript?",
-    "answers": [
+    "questionTopic": "JavaScript",
+    "questionText": "Для чего используются методы map, filter, reduce, forEach в JavaScript?",
+    "questionAnswers": [
       "forEach для перебора, map для трансформации, filter для фильтрации, reduce для последовательной обработки",
       "forEach для трансформации, map для фильтрации, filter для последовательной обработки, reduce для перебора",
       "forEach для фильтрации, map для перебора, filter для трансформации, reduce для фильтрации",
       "forEach для обработки, map для перебора, filter для сортировки, reduce для трансформации"
     ],
-    "correct_answer": "forEach для перебора, map для трансформации, filter для фильтрации, reduce для последовательной обработки"
+    "questionCorrectAnswer": "forEach для перебора, map для трансформации, filter для фильтрации, reduce для последовательной обработки"
+  },
+  {
+    "id": 6,
+    "questionTopic": "JavaScript",
+    "questionText": "В чем отличие стрелочных функций от функций, объявленных через function?",
+    "questionAnswers": [
+      "Стрелочные функции не имеют своего this, не могут быть конструкторами и не имеют arguments",
+      "Стрелочные функции не имеют своего this, но могут быть конструкторами",
+      "Стрелочные функции имеют свой this, но не могут быть конструкторами и не имеют arguments",
+      "Стрелочные функции не имеют своего this, не могут быть конструкторами, но имеют arguments"
+    ],
+    "questionCorrectAnswer": "Стрелочные функции не имеют своего this, не могут быть конструкторами и не имеют arguments"
+  },
+  {
+    "id": 7,
+    "questionTopic": "JavaScript",
+    "questionText": "Что такое замыкание в JavaScript?",
+    "questionAnswers": [
+      "Замыкание — это функция, которая замыкает в себе внешние переменные",
+      "Замыкание — это функция, которая не имеет доступа к внешним переменным",
+      "Замыкание — это функция, которая создается внутри другой функции",
+      "Замыкание — это функция, которая выполняется сразу после создания"
+    ],
+    "questionCorrectAnswer": "Замыкание — это функция, которая замыкает в себе внешние переменные"
+  },
+  {
+    "id": 8,
+    "questionTopic": "JavaScript",
+    "questionText": "Что такое шаблонные литералы и для чего они нужны?",
+    "questionAnswers": [
+      "Шаблонные литералы позволяют использовать переменные и выражения внутри строк",
+      "Шаблонные литералы — это строки с фиксированным значением",
+      "Шаблонные литералы — это строки, которые нельзя изменять",
+      "Шаблонные литералы позволяют создавать строки с использованием только переменных"
+    ],
+    "questionCorrectAnswer": "Шаблонные литералы позволяют использовать переменные и выражения внутри строк"
+  },
+  {
+    "id": 9,
+    "questionTopic": "JavaScript",
+    "questionText": "Что такое Set и Map в JavaScript?",
+    "questionAnswers": [
+      "Set — это множество уникальных значений, Map — коллекция ключ/значение",
+      "Set — это коллекция ключ/значение, Map — множество уникальных значений",
+      "Set — это массив уникальных значений, Map — коллекция объектов",
+      "Set — это коллекция объектов, Map — массив уникальных значений"
+    ],
+    "questionCorrectAnswer": "Set — это множество уникальных значений, Map — коллекция ключ/значение"
+  },
+  {
+    "id": 10,
+    "questionTopic": "JavaScript",
+    "questionText": "Как определить наличие свойства в объекте в JavaScript?",
+    "questionAnswers": [
+      "С помощью метода hasOwnProperty или оператора in",
+      "С помощью оператора typeof",
+      "С помощью метода includes",
+      "С помощью метода indexOf"
+    ],
+    "questionCorrectAnswer": "С помощью метода hasOwnProperty или оператора in"
   }
 ]

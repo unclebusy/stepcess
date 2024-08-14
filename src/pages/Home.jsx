@@ -17,7 +17,7 @@ export const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch('/data/questions-test.json')
+    fetch('/data/questionsTest.json')
       .then((resp) => {
         if (!resp.ok) {
           throw new Error('Network response was not ok');
@@ -29,12 +29,12 @@ export const Home = () => {
         if (questions.length > 0) {
           const randomQuestion = _.sample(questions);
           dispatch(setCurrentQuestion(randomQuestion));
-          dispatch(setCurrentAnswers(randomQuestion.answers));
-          dispatch(setCorrectAnswer(randomQuestion.correct_answer));
+          dispatch(setCurrentAnswers(randomQuestion.questionAnswers));
+          dispatch(setCorrectAnswer(randomQuestion.questionCorrectAnswer));
         }
       })
       .catch((error) => console.error('Error fetching data:', error));
-  }, []);
+  }, [dispatch]);
 
   if (!currentQuestion) {
     return <Download />;
@@ -42,7 +42,7 @@ export const Home = () => {
 
   return (
     <MainBox>
-      <Typography variant="h6" component="h2">
+      <Typography variant="h5" component="h2">
         Тестирование для {testTypeName} разработчика
       </Typography>
       <QuestionField />
