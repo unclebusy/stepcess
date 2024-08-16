@@ -16,7 +16,9 @@ export default function ButtonsGroup() {
       }}
     >
       <ButtonGroup variant="contained" aria-label="Test type button group" color="primary">
-        <Button sx={{ backgroundColor: 'white', color: '#1976D2' }}>Frontend</Button>
+        <Button variant="contained" sx={{ backgroundColor: 'white', color: '#1976D2' }}>
+          Frontend
+        </Button>
         <Button>Backend</Button>
         <Button>Fullstack</Button>
       </ButtonGroup>

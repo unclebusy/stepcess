@@ -94,7 +94,8 @@ export function AnswersField() {
               alignSelf: 'center',
             }}
             type="submit"
-            variant="outlined"
+            variant="contained"
+            color="primary"
           >
             Проверить ответ
           </Button>

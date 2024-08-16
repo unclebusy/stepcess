@@ -7,6 +7,8 @@ import Typography from '@mui/material/Typography';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import HeaderBox from './HeaderBox';
 import ButtonsGroup from '../ui/ButtonsGroup';
+import LanguageSelect from '../ui/LanguageSelect';
+import ThemeSwitcher from '../ui/ThemeSwitcher';
 
 export default function HeaderXl() {
   return (
@@ -28,6 +30,8 @@ export default function HeaderXl() {
           </Box>
           <ButtonsGroup />
           <Box sx={{ display: 'flex' }}>
+            <ThemeSwitcher />
+            <LanguageSelect />
             <IconButton
               size="large"
               aria-label="account of current user"
