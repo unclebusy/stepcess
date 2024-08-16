@@ -20,7 +20,7 @@ export const MainBox = ({ children }) => {
           borderRadius: '1rem',
           boxShadow: 10,
           display: 'grid',
-          gridTemplateRows: ' 0fr 1fr 1fr',
+          gridTemplateRows: '2fr 1fr',
           gap: '1rem',
           padding: '2rem',
         }}

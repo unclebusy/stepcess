@@ -34,18 +34,14 @@ export function AnswersField() {
       const filteredAllQuestions = allQuestions.filter((question) => question.id !== idQuestions);
 
       dispatch(setAllQuestions(filteredAllQuestions));
-
       if (filteredAllQuestions.length > 0) {
         const nextQuestion = _.shuffle(filteredAllQuestions)[0];
-        // eslint-disable-next-line
-        console.log('Ответ верный');
+
         dispatch(setCurrentQuestion(nextQuestion));
         dispatch(setCurrentAnswers(nextQuestion.questionAnswers));
         dispatch(setCorrectAnswer(nextQuestion.questionCorrectAnswer));
       }
     } else {
-      // eslint-disable-next-line
-      console.log('Ответ неверный');
       setUserSelectedAnswer('');
       dispatch(setCurrentAnswers(mixedAnswers));
     }

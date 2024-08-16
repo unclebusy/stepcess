@@ -3,10 +3,16 @@ import { useSelector } from 'react-redux';
 import * as React from 'react';
 
 export const QuestionField = () => {
-  const currentQuestion = useSelector((state) => state.questions.currentQuestion.questionText);
-  const currentQuestionTopic = useSelector(
-    (state) => state.questions.currentQuestion.questionTopic
-  );
+  const questions = useSelector((state) => state.questions.allQuestions || []);
+  const remainingQuestions = questions.length;
+
+  const currentQuestion = useSelector((state) => state.questions.currentQuestion);
+  const currentQuestionText = currentQuestion
+    ? currentQuestion.questionText
+    : 'Нет доступных вопросов';
+  const currentQuestionTopic = currentQuestion ? currentQuestion.questionTopic : 'Неизвестно';
+
+  const testTypeName = useSelector((state) => state.testType.testTypeName);
 
   return (
     <Box
@@ -15,6 +21,7 @@ export const QuestionField = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        height: '100%',
         padding: '1rem 2rem',
         boxShadow: 1,
         borderRadius: '0.5rem',
@@ -23,20 +30,36 @@ export const QuestionField = () => {
       <Box
         sx={{
           display: 'flex',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           width: '100%',
-          height: '100%',
+          color: 'gray',
         }}
       >
-        <h1>{currentQuestion ? currentQuestion : 'Нет доступных вопросов'}</h1>
+        <p>Тестирование для {testTypeName} разработчика</p>
+        <p>Тема вопроса: {currentQuestionTopic}</p>
       </Box>
       <Box
         sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          height: '100%',
           margin: 0,
-          alignSelf: 'flex-end',
+          padding: 0,
         }}
       >
-        <p>Тема вопроса: {currentQuestionTopic}</p>
+        <h1>{currentQuestionText ? currentQuestionText : 'Нет доступных вопросов'}</h1>
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          width: '100%',
+          color: 'gray',
+        }}
+      >
+        <p>Осталось вопросов: {remainingQuestions}</p>
       </Box>
     </Box>
   );
