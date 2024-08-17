@@ -6,8 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import HeaderBox from './HeaderBox';
-import ButtonsGroup from '../ui/ButtonsGroup';
-import LanguageSelect from '../ui/LanguageSelect';
+import ButtonsGroupTestType from '../ui/ButtonsGroupTestType';
+import ButtonsGroupLanguage from '../ui/ButtonsGroupLanguage';
 import ThemeSwitcher from '../ui/ThemeSwitcher';
 
 export default function HeaderXl() {
@@ -28,10 +28,10 @@ export default function HeaderXl() {
               StepCess
             </Typography>
           </Box>
-          <ButtonsGroup />
+          <ButtonsGroupTestType />
           <Box sx={{ display: 'flex' }}>
             <ThemeSwitcher />
-            <LanguageSelect />
+            <ButtonsGroupLanguage />
             <IconButton
               size="large"
               aria-label="account of current user"

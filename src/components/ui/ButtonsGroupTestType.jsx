@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
 
-export default function ButtonsGroup() {
+export default function ButtonsGroupTestType() {
   return (
     <Box
       sx={{
