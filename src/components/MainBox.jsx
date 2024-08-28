@@ -15,7 +15,8 @@ export const MainBox = ({ children }) => {
     >
       <Box
         sx={{
-          width: '60vw',
+          width: '100%',
+          maxWidth: '60vw',
           height: 'calc(80vh - 60px)',
           borderRadius: '1rem',
           boxShadow: 10,
@@ -23,6 +24,7 @@ export const MainBox = ({ children }) => {
           gridTemplateRows: '2fr 1fr',
           gap: '1rem',
           padding: '2rem',
+          boxSizing: 'border-box',
         }}
       >
         {children}

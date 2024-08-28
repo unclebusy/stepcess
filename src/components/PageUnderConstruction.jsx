@@ -1,3 +1,5 @@
+import { MainBox } from './MainBox';
+
 export const PageUnderConstruction = () => {
-  return <></>;
+  return <MainBox></MainBox>;
 };
