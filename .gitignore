@@ -1,6 +1,6 @@
 # data
 /public/data/questionsMain.json
-/public/data/questionsMain.json
+/public/data/questionsMainHTML.json
 
 # dependencies
 /node_modules
